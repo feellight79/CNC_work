@@ -65,7 +65,7 @@ function App() {
     <BrowserRouter>
       <TokenContext.Provider value={{userToken, tokenDispatch, user, userDispatch}}>
         <TaskContext.Provider value={{ tasks, dispatch }}>
-          <Header/>
+          {/* <Header/> */}
           <Routes>
             <Route path="/" element={token ? <Layout/> : <Login/>}/>
             <Route path="/login" element={<Login/>}/>

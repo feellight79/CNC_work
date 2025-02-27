@@ -20,74 +20,75 @@ function Login() {
     }
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const name = e.target.name;
+        const value = e.target.value;
         setFormData({ ...formData, [name]: value })
     }
     return (
-        <div>
+        <div className='bg-[#F6F2EF] w-screen h-screen flex items-center justify-center'>
             {userToken && <Navigate to="/" />}
-            <section className="login-container">
-                <div className="px-6 h-full text-gray-800">
-                    <div className="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-                        <div className="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" className="w-full" alt="Sample" />
+            <section className='w-[83.3%] h-[75.2%] rounded-[40px] shadow-xl'>
+                <img className='m-auto mt-[50px] mb-[70px]' src='Brand logo.png' alt='mark'/>
+                <div className="flex justify-around items-start">
+                    <form className='bg-[#F6F2EF] bg-opacity-[79%] rounded-[10px] shadow-lg w-1/3 px-[40px] py-[50px]' method='post' onSubmit={handleSubmit}>
+                        <h2 className='font-medium text-[40px] text-center mb-[50px] leading-[20px]'>Login</h2>
+                        <div>
+                            {error && (
+                                <div className="text-center border-2 border-green-600 p-2 mb-2 rounded-md bg-red-200 shadow-2xl">
+                                    {error.message}
+                                </div>
+                            )
+                            }
                         </div>
-                        <div className="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                            <form method='post' onSubmit={handleSubmit}>
-                                <div>
-                                    {error && (
-                                        <div className="text-center border-2 border-green-600 p-2 mb-2 rounded-md bg-red-200 shadow-2xl">
-                                            {error.message}
-                                        </div>
-                                    )
-                                    }
-                                </div>
-                                {/* Email input */}
-                                <div className="mb-6">
-                                    <input
-                                        type="text"
-                                        name='email'
-                                        onChange={handleChange}
-                                        className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                        id="emailInput"
-                                        placeholder="Email address" />
-                                </div>
-                                {/* Password input */}
-                                <div className="mb-6">
-                                    <input
-                                        type="password"
-                                        name='password'
-                                        onChange={handleChange}
-                                        className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                        id="passInput"
-                                        placeholder="Password" />
-                                </div>
-                                <div className="flex justify-between items-center mb-6">
-                                    <Link
-                                        to={"/forgotPassword"}
-                                    >Forgot Password?</Link>
-                                </div>
-                                <div className="text-center lg:text-left">
-                                    <button
-                                        type="submit"
-                                        onClick={handleSubmit}
-                                        className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                                        Login
-                                    </button>
-                                    <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-                                        Don't have an account?
-                                        <Link
-                                            to={"/register"}
-                                            className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out ml-5"
-                                        >Register</Link>
-                                    </p>
-                                </div>
-                            </form>
+                        {/* Email input */}
+                        <div className="mb-[50px]">
+                            <input
+                                type="text"
+                                name='username'
+                                value={formData.username || ""}
+                                onChange={handleChange}
+                                className='w-full px-[15px] py-[5px] font-normal text-[14px] rounded-[4px] border border-black'
+                                id="usernameInput"
+                                placeholder="Username" />
                         </div>
+                        {/* Password input */}
+                        <div className="mb-[50px]">
+                            <input
+                                type="password"
+                                name='password'
+                                value={formData.password || ""}
+                                onChange={handleChange}
+                                className="w-full px-[15px] py-[5px] font-normal text-[14px] rounded-[4px] border border-black"
+                                id="passInput"
+                                placeholder="Password" />
+                        </div>
+                        {/* <div className="flex justify-between items-center mb-6">
+                            <Link
+                                to={"/forgotPassword"}
+                            >Forgot Password?</Link>
+                        </div> */}
+                        <div className="text-center">
+                            <button
+                                type="submit"
+                                onClick={handleSubmit}
+                                className="text-white text-[14px] px-[25px] py-[8px] bg-[#A77C61] rounded-[5px]">
+                                Login
+                            </button>
+                            <p className="text-sm font-semibold mt-[15px]">
+                                Don't have an account?
+                                <Link
+                                    to={"/register"}
+                                    className="text-[#5C4435] ml-1"
+                                >Make One</Link>
+                            </p>
+                        </div>
+                    </form>
+                    <div>
+                        <p className='text-[#A77C61] text-[24.2px] font-medium'>Welcome to</p>
+                        <h1 className='text-[#5C4435] text-[42px] font-bold'>Your Site To<br/>Customize You Door</h1>
                     </div>
                 </div>
             </section>
-
         </div>
     );
 }
