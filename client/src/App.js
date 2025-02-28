@@ -5,7 +5,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Active from './components/Active';
 import Completed from './components/Completed';
 import AllTask from './components/AllTask';
-import Layout from './components/Layout';
+import Home from './components/Home';
+import Orders from './components/Orders';
 import TaskContext from './context/TaskContext';
 import TokenContext from './context/TokenContext';
 import taskReducer from './reducer/taskReducer';
@@ -17,6 +18,8 @@ import Register from './components/Register';
 import ForgotPassword from './components/forgotPassword/ForgotPassword';
 import ResetPassword from './components/forgotPassword/ResetPassword';
 import axios from './Axios/axios.js';
+import Templates from "./components/Templates.jsx";
+import Users from "./components/Users.jsx";
 function App() {
   const token = JSON.parse(localStorage.getItem("authToken"));
   const [tasks, dispatch] = useReducer(taskReducer, [])
@@ -67,9 +70,13 @@ function App() {
         <TaskContext.Provider value={{ tasks, dispatch }}>
           {/* <Header/> */}
           <Routes>
-            <Route path="/" element={token ? <Layout/> : <Login/>}/>
+            <Route path="/" element={token ? <Home/> : <Login/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
+            <Route path="/home" element={<Home/>}/>
+            <Route path="/orders" element={<Orders/>}/>
+            <Route path="/templates" element={<Templates/>}/>
+            <Route path="/users" element={<Users/>}/>
             <Route path="/resetPassword" element={<ForgotPassword/>}/>
             <Route path="/forgotPassword" element={<ResetPassword/>}/>
           </Routes>
