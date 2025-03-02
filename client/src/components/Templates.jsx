@@ -3,7 +3,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import LeftSide from './LeftSide';
 function Templates() {
     return (
-        <div className='bg-[#FFF8F0] h-screen relative'>
+        <div className='h-screen relative'>
             <img className='absolute' src="shape-top.png" alt="shape" />
             <img className='absolute bottom-0 w-screen' src="shape-btm.png" alt="shape" />
             <div className='flex'>

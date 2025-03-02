@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.border-bb{
+    border-bottom: 1px solid!important;
+    border-color: #A77C61!important;
+}

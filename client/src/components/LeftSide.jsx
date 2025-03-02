@@ -18,14 +18,14 @@ function LeftSide() {
     return (
         <div className='w-[219px] border-l-[#A77C61] border-l-[3px] relative overflow-visible'>
             <img className='m-auto mt-[40px] mb-[30px] ml-[38px] w-[143px] h-[77px]' src='Brand logo.png' alt='mark'/>
-            <ul>
-                <li className={`pl-[45px] leading-[34px] rounded-r-[10px] mr-[50px] hover:bg-[#A77C61] hover:text-white ${activeIndex[0] ? "bg-[#A77C61] text-white" : ""}`}>
+            <ul className='text-[18px]'>
+                <li className={`pl-[45px] leading-[36px] rounded-r-[10px] mr-[50px] hover:bg-[#A77C61] hover:text-white ${activeIndex[0] ? "bg-[#A77C61] text-white" : ""}`}>
                     <Link to={"/templates"}>Templates</Link>
                 </li>
-                <li className={`pl-[45px] leading-[34px]  rounded-r-[10px] mr-[50px] my-[40px] hover:bg-[#A77C61] hover:text-white ${activeIndex[1] ? "bg-[#A77C61] text-white" : ""}`}>
+                <li className={`pl-[45px] leading-[36px]  rounded-r-[10px] mr-[50px] my-[40px] hover:bg-[#A77C61] hover:text-white ${activeIndex[1] ? "bg-[#A77C61] text-white" : ""}`}>
                     <Link to={"/orders"}>Orders</Link>
                 </li>
-                <li className={`pl-[45px] leading-[34px]  rounded-r-[10px] mr-[50px] hover:bg-[#A77C61] hover:text-white ${activeIndex[2] ? "bg-[#A77C61] text-white" :""}`}>
+                <li className={`pl-[45px] leading-[36px]  rounded-r-[10px] mr-[50px] hover:bg-[#A77C61] hover:text-white ${activeIndex[2] ? "bg-[#A77C61] text-white" :""}`}>
                     <Link to={"/users"}>Users</Link>
                 </li>
             </ul>
