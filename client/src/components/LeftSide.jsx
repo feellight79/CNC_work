@@ -13,8 +13,6 @@ function LeftSide() {
     const isUsersRoute = location.pathname.startsWith('/users');
     const [activeIndex, setActiveIndex] = useState([isTemplatesRoute, isOrdersRoute, isUsersRoute]);
 
-    console.log(location);
-    console.log(isOrdersRoute);
     return (
         <div className='w-[219px] border-l-[#A77C61] border-l-[3px] relative overflow-visible'>
             <img className='m-auto mt-[40px] mb-[30px] ml-[38px] w-[143px] h-[77px]' src='Brand logo.png' alt='mark'/>

@@ -44,6 +44,17 @@ function Users() {
         setItemsPerPage(Number(e.target.value));
     };
 
+    const [activeview, setActiveView] = useState([]);
+    const handleView = (index) => {
+        const updatedActiveView = [...activeview];
+        console.log(updatedActiveView);
+        updatedActiveView[index] = !updatedActiveView[index];
+        console.log(updatedActiveView);
+        setActiveView(updatedActiveView);
+    };
+    console.log(activeview);
+
+
     return (
         <div className='h-screen relative'>
             <img className='absolute' src="shape-top.png" alt="shape" />
@@ -101,7 +112,9 @@ function Users() {
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.Role}</td>
                                                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.Company}</td>
                                                 <td>
-                                                    <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-8 w-8"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-eye h-4 w-4"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+                                                    <button key={index} onClick={() => handleView(index)} class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-8 w-8">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class={`viewf lucide lucide-eye h-4 w-4 ${activeview[index]? 'text-green-500':'text-gray-800'}`}><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         ))}
