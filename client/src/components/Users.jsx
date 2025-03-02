@@ -84,7 +84,7 @@ function Users() {
                         <div className='flex-1 flex flex-col w-full'>
                             <div className="relative flex-1 flex flex-col border border-[#5C4435] max-w-6xl bg-white rounded-lg shadow-md mt-4">                                                                                    
                                 {/* Table */}
-                                <div className="h-[calc(100vh - 326px)] overflow-x-auto overflow-y-hidden p-1">
+                                <div className="h-[calc(100vh-326px)] overflow-x-auto overflow-y-auto p-1">
                                     <table className="min-w-full divide-y divide-[#A77C61] leading-[49px]">
                                         <thead className='text-[#5C4435] font-bold'>
                                             <tr>
